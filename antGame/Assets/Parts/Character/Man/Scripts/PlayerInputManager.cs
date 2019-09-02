@@ -4,8 +4,6 @@ using Photon.Pun;
 
 public class PlayerInputManager : MonoBehaviour
 {
-    public Transform cameraFollowTarget;
-
     private Camera camera;
     private PlayerController playerController;
     private PhotonView PV;
@@ -24,11 +22,7 @@ public class PlayerInputManager : MonoBehaviour
 
         if (!PV.IsMine)
         {
-            this.enabled = false;
-        }
-        else
-        {
-            FindObjectOfType<CameraController>().followTarget = cameraFollowTarget;
+        //    this.enabled = false;
         }
     }
 
@@ -48,7 +42,7 @@ public class PlayerInputManager : MonoBehaviour
         rawInputs.y = Input.GetAxis("Vertical");
         rawInputs.x = Input.GetAxis("Horizontal");
 
-        crouching = Input.GetKey(KeyCode.C);
+        crouching = Input.GetKey(KeyCode.LeftControl);
         sprinting = Input.GetKey(KeyCode.LeftShift);
         jumping = Input.GetKeyDown(KeyCode.Space);
     }
