@@ -6,6 +6,7 @@ using System;
 public class PlayerController : MonoBehaviour
 {
     public float damp = 0.3f;
+    public float turnSpeed;
 
     private Animator anim;
     private Rigidbody controller;
@@ -36,12 +37,13 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("Crouching", crouching);
         anim.SetBool("Sprinting", sprinting);
         anim.SetFloat("Turn", turnAngle);
-        anim.SetFloat("Vertical", rawInputs.magnitude, damp, delta);
+        anim.SetFloat("Vertical", rawInputs.y, damp, delta);
+        anim.SetFloat("Horizontal", rawInputs.x, damp, delta);
     }
 
     private void Turn(float turnAngle, float delta)
     {
-        transform.Rotate(0, turnAngle * 360 * delta, 0);
+        transform.Rotate(0, (Input.GetAxis("Mouse X") * turnSpeed) * Time.deltaTime / 2, 0);
     }
 
     private void OnAnimatorMove()

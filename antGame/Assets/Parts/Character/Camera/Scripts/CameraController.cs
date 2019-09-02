@@ -5,7 +5,6 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Transform camera;
-    public Transform followTarget;
 
     [Header("CameraCollision")]
     public LayerMask mask;
@@ -110,15 +109,10 @@ public class CameraController : MonoBehaviour
 
     private void Dolly()
     {
-        if (followTarget == null)
-            return;
-
-        rotationX += MouseX * sensitivityX;
         rotationY += MouseY * sensitivityY;
         rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
 
-        Quaternion lookDirection = Quaternion.Euler(-rotationY, rotationX, 0);
+        Quaternion lookDirection = Quaternion.Euler(-rotationY, transform.eulerAngles.y, 0);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookDirection, Time.deltaTime * damp);
-        transform.position = Vector3.Lerp(transform.position, followTarget.position, Time.deltaTime * damp);
     }
 }
