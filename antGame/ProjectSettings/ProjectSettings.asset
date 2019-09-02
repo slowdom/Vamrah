@@ -637,10 +637,10 @@ PlayerSettings:
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
     Build: 0
-    Collab: 1
+    Collab: 0
     ErrorHub: 0
     Hub: 0
-    UNet: 1
+    UNet: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -660,10 +660,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 487449fd-897b-41cc-8f14-ef3529c3545c
+  cloudProjectId: 
   framebufferDepthMemorylessMode: 0
-  projectName: antGame
-  organizationId: dominic-hills
+  projectName: 
+  organizationId: 
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
